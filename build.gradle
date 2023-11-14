@@ -34,6 +34,7 @@ dependencies {
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.3.1'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation 'javax.servlet:jstl:1.2'  // springboot ver 2.x
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.7'
 	
 }
 

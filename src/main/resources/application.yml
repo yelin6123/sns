@@ -3,8 +3,24 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+    static-path-pattern:  /static/**
   datasource:
     driver-class-name:  com.mysql.cj.jdbc.Driver
     url:  jdbc:mysql://localhost:3306/sns_230619?characterEncoding=UTF-8
     username: root
     password: Wlpg4138^^
+  servlet:
+    multipart:
+      max-file-size:  10MB
+      max-request-size: 10MB
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming: 
+        implicit-strategy:  org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy:  org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
