@@ -12,5 +12,4 @@ public class Comment {
 	private String content;
 	private Date createdAt;
 	private Date updatedAt;
-	
 }

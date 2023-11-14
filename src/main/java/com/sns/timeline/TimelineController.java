@@ -2,6 +2,8 @@ package com.sns.timeline;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,21 +14,15 @@ import com.sns.timeline.domain.CardView;
 
 @Controller
 public class TimelineController {
-	
-//	@Autowired
-//	private PostBO postBO;
-	
-	
 	@Autowired
 	private TimelineBO timelineBO;
-	
-	
-	@GetMapping("/timeline/timeline-view")
-	public String timeline(Model model) {
-		//List<PostEntity> postList = postBO.getPostList();
-		//model.addAttribute("postList", postList);
-		List<CardView> cardViewList = timelineBO.generateCardViewList();
 
+	@GetMapping("/timeline/timeline-view")
+	public String timelineView(Model model, HttpSession session) {
+		Integer userId = (Integer)session.getAttribute("userId");
+		
+		List<CardView> cardViewList = timelineBO.generateCardViewList(userId);
+		
 		model.addAttribute("cardList", cardViewList);
 		model.addAttribute("viewName", "timeline/timeline");
 		return "template/layout";
