@@ -55,11 +55,13 @@ public class TimelineBO {
 			cardView.setCommentList(commentList);
 			
 			// 좋아요 카운트
+			// 글에 대해서 좋아요의 개수를 확인
 			int likeCount = likeBO.getLikeCountByPostId(post.getId());
 			cardView.setLikeCount(likeCount);
 			
 			// 내가 좋아요 눌렀는지 여부
-			// false: 비로그인 또는 누르지 않았을 때
+			// false가 되는 경우 비로그인 또는 누르지 않았을 때
+			//if문을 여기에 하면 복잡해보일 수 있으므로 likeBO에게 요청함 (boolean으로 가져옴)
 			boolean filledLike = likeBO.filledLike(post.getId(), userId);
 			cardView.setFilledLike(filledLike);
 			

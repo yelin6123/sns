@@ -19,8 +19,9 @@ public class TimelineController {
 
 	@GetMapping("/timeline/timeline-view")
 	public String timelineView(Model model, HttpSession session) {
+		//null이거나 아니거나 (비로그인도 에러가 나면 안되기 때문에)
 		Integer userId = (Integer)session.getAttribute("userId");
-		
+		//userId 를 BO에게 넘김 
 		List<CardView> cardViewList = timelineBO.generateCardViewList(userId);
 		
 		model.addAttribute("cardList", cardViewList);

@@ -51,6 +51,17 @@
 				<%-- 토글을 누르는 순간 하트가 채워져있는지 확인이 되는게 아니라 timeline이 뿌려질 때 확인해야함  --%>
 				<div class="card-like m-3">
 					<%-- 빈하트: 1) 비로그인 2) 좋아요를 누르지 않았을 때 && 로그인 --%>
+					<%-- <c:if test=${empty userId} ==> 서버가 다 계산을 했으므로 필요가 없음!
+						<a href="#" class="like-btn" data-post-id="${card.post.id}">
+							<img src="빈 하트 empty heart">
+							
+						</c:if>	
+							
+						<c:if test="${not empty userId}>
+						<a href="#" class="like-btn" data-post-id="${card.post.id}">
+							<img src="채워진 하트 not empty heart">
+						</c:if>
+					 --%>
 					<c:if test="${card.filledLike eq false}">
 					<a href="#" class="like-btn" data-post-id="${card.post.id}">
 						<img src="https://www.iconninja.com/files/214/518/441/heart-icon.png" width="18" height="18" alt="empty heart">
@@ -58,7 +69,7 @@
 					</c:if>
 					
 					<%-- 채워진 하트: 로그인 && 좋아요 눌렀을 때 --%>
-					<c:if test="${card.filledLike eq true}">
+					<c:if test="${card.filledLike eq true}"> <%--eq true 생략가능 --%>
 					<a href="#" class="like-btn" data-post-id="${card.post.id}">
 						<img src="https://www.iconninja.com/files/527/809/128/heart-icon.png" width="18" height="18" alt="filled heart">
 					</a>

@@ -11,6 +11,7 @@ public interface LikeMapper {
 //	
 //	public int selectLikeCountByPostId(int postId);
 	
+	//위 둘의 공통점(int, postId)를 기준으로 다시 작성 
 	public int selectLikeCountByPostIdOrUserId(
 			@Param("postId") int postId,
 			@Param("userId") Integer userId);

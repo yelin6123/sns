@@ -22,9 +22,9 @@ public class LikeBO {
 			// 추가
 			likeMapper.insertLike(postId, userId);
 		}
-	}
+	} 
 	
-	// input:글번호     output: 개수(int)
+	// input:어느 게시글인가? -> 글번호     output: 개수(int)
 	public int getLikeCountByPostId(int postId) {
 		return likeMapper.selectLikeCountByPostIdOrUserId(postId, null);
 	}
